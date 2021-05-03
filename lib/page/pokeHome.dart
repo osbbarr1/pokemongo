@@ -8,6 +8,10 @@ class HomePagePokemon extends StatefulWidget {
 
 class _HomePagePokemonState extends State<HomePagePokemon> {
   final PokemonProviders pokemonProviders = PokemonProviders();
+  final pokemonInText = TextEditingController();
+
+  String pokemonStr = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +33,7 @@ class _HomePagePokemonState extends State<HomePagePokemon> {
                   padding: const EdgeInsets.all(15.0),
                   child: Center(
                     child: Text(
-                      "Pokémon",
+                      "Pokedex",
                       style: TextStyle(
                         fontSize: 50,
                         color: Colors.yellow,
@@ -37,10 +41,91 @@ class _HomePagePokemonState extends State<HomePagePokemon> {
                     ),
                   ),
                 ),
+                Container(
+                  color: Colors.amber,
+                  //height: 50,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      //color: Colors.blue,
+                      width: 150,
+                      height: 250,
+                      child: Center(
+                          child:
+                              Image(image: AssetImage('assets/pikachu1.png'))),
+                    ),
+                    Container(
+                      //color: Colors.white,
+                      width: 150,
+                      height: 270,
+                      child: Center(
+                        child: Text(
+                          "¡Bienvenido a la Pokedex!" +
+                              "\n " +
+                              "\n Por favor escriba el nombre del pokèmon o el numero de identificación del mismo. ",
+                          style: TextStyle(fontSize: 20, color: Colors.yellow),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                      child: TextField(
+                        controller: pokemonInText,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(),
+                          hintText: 'Insertar nombre pokèmon',
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: new BorderSide(color: Colors.white),
+                            borderRadius: new BorderRadius.circular(25.7),
+                          ),
+                        ),
+                      ),
+                    ),
+                    /*Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Insertar nombre pokèmon',
+                        ),
+                      ),
+                    ),
+                    Container(
+                      color: Colors.blue,
+                      height: 100,
+                    ),
+                    Container(
+                      color: Colors.green,
+                      height: 100,
+                    )*/
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                            onPressed: () {
+                              pokemonStr = pokemonInText.text;
+                            },
+                            child: Text("Buscar")),
+                      ],
+                    ),
+                  ],
+                )
               ],
             ),
           ),
-        )
+        ),
       ],
     );
   }
