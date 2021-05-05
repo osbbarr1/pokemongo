@@ -8,6 +8,15 @@ part 'pokemon_response.g.dart';
 abstract class RandorUserResponse
     implements Built<RandorUserResponse, RandorUserResponseBuilder> {
   BuiltList<RandorUser> get abilities;
+  BuiltList<RandorUser> get types;
+  BuiltList<RandorUser> get stats;
+  @nullable
+  int get height;
+  @nullable
+  String get name;
+  @nullable
+  int get order;
+  @nullable
   Sprites get sprites;
 
   RandorUserResponse._();
@@ -47,9 +56,20 @@ abstract class Sprites implements Built<Sprites, SpritesBuilder> {
 }
 
 abstract class RandorUser implements Built<RandorUser, RandorUserBuilder> {
+  @nullable
   bool get is_hidden;
+  @nullable
   int get slot;
+  @nullable
+  @BuiltValueField(compare: false)
   Ability get ability;
+  @nullable
+  int get base_stat;
+  @nullable
+  int get effort;
+  @nullable
+  @BuiltValueField(compare: false)
+  Ability get stat;
 
   RandorUser._();
   factory RandorUser([void Function(RandorUserBuilder) updates]) = _$RandorUser;

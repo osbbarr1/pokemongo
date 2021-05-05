@@ -13,6 +13,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Sprites.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(RandorUser)]),
+          () => new ListBuilder<RandorUser>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(RandorUser)]),
+          () => new ListBuilder<RandorUser>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(RandorUser)]),
           () => new ListBuilder<RandorUser>()))
     .build();
 

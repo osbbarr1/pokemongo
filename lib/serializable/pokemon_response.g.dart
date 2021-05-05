@@ -27,11 +27,34 @@ class _$RandorUserResponseSerializer
       serializers.serialize(object.abilities,
           specifiedType:
               const FullType(BuiltList, const [const FullType(RandorUser)])),
+      'types',
+      serializers.serialize(object.types,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(RandorUser)])),
+      'stats',
+      serializers.serialize(object.stats,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(RandorUser)])),
+      'order',
+      serializers.serialize(object.order, specifiedType: const FullType(int)),
       'sprites',
       serializers.serialize(object.sprites,
           specifiedType: const FullType(Sprites)),
     ];
-
+    Object value;
+    value = object.height;
+    if (value != null) {
+      result
+        ..add('height')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.name;
+    if (value != null) {
+      result
+        ..add('name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -52,6 +75,30 @@ class _$RandorUserResponseSerializer
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(RandorUser)]))
               as BuiltList<Object>);
+          break;
+        case 'types':
+          result.types.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(RandorUser)]))
+              as BuiltList<Object>);
+          break;
+        case 'stats':
+          result.stats.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(RandorUser)]))
+              as BuiltList<Object>);
+          break;
+        case 'height':
+          result.height = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'order':
+          result.order = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
           break;
         case 'sprites':
           result.sprites.replace(serializers.deserialize(value,
@@ -127,17 +174,47 @@ class _$RandorUserSerializer implements StructuredSerializer<RandorUser> {
   @override
   Iterable<Object> serialize(Serializers serializers, RandorUser object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'is_hidden',
-      serializers.serialize(object.is_hidden,
-          specifiedType: const FullType(bool)),
-      'slot',
-      serializers.serialize(object.slot, specifiedType: const FullType(int)),
-      'ability',
-      serializers.serialize(object.ability,
-          specifiedType: const FullType(Ability)),
-    ];
-
+    final result = <Object>[];
+    Object value;
+    value = object.is_hidden;
+    if (value != null) {
+      result
+        ..add('is_hidden')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.slot;
+    if (value != null) {
+      result
+        ..add('slot')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.ability;
+    if (value != null) {
+      result
+        ..add('ability')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Ability)));
+    }
+    value = object.base_stat;
+    if (value != null) {
+      result
+        ..add('base_stat')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.effort;
+    if (value != null) {
+      result
+        ..add('effort')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.stat;
+    if (value != null) {
+      result
+        ..add('stat')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Ability)));
+    }
     return result;
   }
 
@@ -162,6 +239,18 @@ class _$RandorUserSerializer implements StructuredSerializer<RandorUser> {
           break;
         case 'ability':
           result.ability.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Ability)) as Ability);
+          break;
+        case 'base_stat':
+          result.base_stat = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'effort':
+          result.effort = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'stat':
+          result.stat.replace(serializers.deserialize(value,
               specifiedType: const FullType(Ability)) as Ability);
           break;
       }
@@ -220,15 +309,36 @@ class _$RandorUserResponse extends RandorUserResponse {
   @override
   final BuiltList<RandorUser> abilities;
   @override
+  final BuiltList<RandorUser> types;
+  @override
+  final BuiltList<RandorUser> stats;
+  @override
+  final int height;
+  @override
+  final String name;
+  @override
+  final int order;
+  @override
   final Sprites sprites;
 
   factory _$RandorUserResponse(
           [void Function(RandorUserResponseBuilder) updates]) =>
       (new RandorUserResponseBuilder()..update(updates)).build();
 
-  _$RandorUserResponse._({this.abilities, this.sprites}) : super._() {
+  _$RandorUserResponse._(
+      {this.abilities,
+      this.types,
+      this.stats,
+      this.height,
+      this.name,
+      this.order,
+      this.sprites})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(
         abilities, 'RandorUserResponse', 'abilities');
+    BuiltValueNullFieldError.checkNotNull(types, 'RandorUserResponse', 'types');
+    BuiltValueNullFieldError.checkNotNull(stats, 'RandorUserResponse', 'stats');
+    BuiltValueNullFieldError.checkNotNull(order, 'RandorUserResponse', 'order');
     BuiltValueNullFieldError.checkNotNull(
         sprites, 'RandorUserResponse', 'sprites');
   }
@@ -247,18 +357,37 @@ class _$RandorUserResponse extends RandorUserResponse {
     if (identical(other, this)) return true;
     return other is RandorUserResponse &&
         abilities == other.abilities &&
+        types == other.types &&
+        stats == other.stats &&
+        height == other.height &&
+        name == other.name &&
+        order == other.order &&
         sprites == other.sprites;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, abilities.hashCode), sprites.hashCode));
+    return $jf($jc(
+        $jc(
+            $jc(
+                $jc(
+                    $jc($jc($jc(0, abilities.hashCode), types.hashCode),
+                        stats.hashCode),
+                    height.hashCode),
+                name.hashCode),
+            order.hashCode),
+        sprites.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('RandorUserResponse')
           ..add('abilities', abilities)
+          ..add('types', types)
+          ..add('stats', stats)
+          ..add('height', height)
+          ..add('name', name)
+          ..add('order', order)
           ..add('sprites', sprites))
         .toString();
   }
@@ -274,6 +403,28 @@ class RandorUserResponseBuilder
   set abilities(ListBuilder<RandorUser> abilities) =>
       _$this._abilities = abilities;
 
+  ListBuilder<RandorUser> _types;
+  ListBuilder<RandorUser> get types =>
+      _$this._types ??= new ListBuilder<RandorUser>();
+  set types(ListBuilder<RandorUser> types) => _$this._types = types;
+
+  ListBuilder<RandorUser> _stats;
+  ListBuilder<RandorUser> get stats =>
+      _$this._stats ??= new ListBuilder<RandorUser>();
+  set stats(ListBuilder<RandorUser> stats) => _$this._stats = stats;
+
+  int _height;
+  int get height => _$this._height;
+  set height(int height) => _$this._height = height;
+
+  String _name;
+  String get name => _$this._name;
+  set name(String name) => _$this._name = name;
+
+  int _order;
+  int get order => _$this._order;
+  set order(int order) => _$this._order = order;
+
   SpritesBuilder _sprites;
   SpritesBuilder get sprites => _$this._sprites ??= new SpritesBuilder();
   set sprites(SpritesBuilder sprites) => _$this._sprites = sprites;
@@ -284,6 +435,11 @@ class RandorUserResponseBuilder
     final $v = _$v;
     if ($v != null) {
       _abilities = $v.abilities.toBuilder();
+      _types = $v.types.toBuilder();
+      _stats = $v.stats.toBuilder();
+      _height = $v.height;
+      _name = $v.name;
+      _order = $v.order;
       _sprites = $v.sprites.toBuilder();
       _$v = null;
     }
@@ -307,12 +463,24 @@ class RandorUserResponseBuilder
     try {
       _$result = _$v ??
           new _$RandorUserResponse._(
-              abilities: abilities.build(), sprites: sprites.build());
+              abilities: abilities.build(),
+              types: types.build(),
+              stats: stats.build(),
+              height: height,
+              name: name,
+              order: BuiltValueNullFieldError.checkNotNull(
+                  order, 'RandorUserResponse', 'order'),
+              sprites: sprites.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'abilities';
         abilities.build();
+        _$failedField = 'types';
+        types.build();
+        _$failedField = 'stats';
+        stats.build();
+
         _$failedField = 'sprites';
         sprites.build();
       } catch (e) {
@@ -441,15 +609,24 @@ class _$RandorUser extends RandorUser {
   final int slot;
   @override
   final Ability ability;
+  @override
+  final int base_stat;
+  @override
+  final int effort;
+  @override
+  final Ability stat;
 
   factory _$RandorUser([void Function(RandorUserBuilder) updates]) =>
       (new RandorUserBuilder()..update(updates)).build();
 
-  _$RandorUser._({this.is_hidden, this.slot, this.ability}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(is_hidden, 'RandorUser', 'is_hidden');
-    BuiltValueNullFieldError.checkNotNull(slot, 'RandorUser', 'slot');
-    BuiltValueNullFieldError.checkNotNull(ability, 'RandorUser', 'ability');
-  }
+  _$RandorUser._(
+      {this.is_hidden,
+      this.slot,
+      this.ability,
+      this.base_stat,
+      this.effort,
+      this.stat})
+      : super._();
 
   @override
   RandorUser rebuild(void Function(RandorUserBuilder) updates) =>
@@ -464,13 +641,15 @@ class _$RandorUser extends RandorUser {
     return other is RandorUser &&
         is_hidden == other.is_hidden &&
         slot == other.slot &&
-        ability == other.ability;
+        base_stat == other.base_stat &&
+        effort == other.effort;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, is_hidden.hashCode), slot.hashCode), ability.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, is_hidden.hashCode), slot.hashCode), base_stat.hashCode),
+        effort.hashCode));
   }
 
   @override
@@ -478,7 +657,10 @@ class _$RandorUser extends RandorUser {
     return (newBuiltValueToStringHelper('RandorUser')
           ..add('is_hidden', is_hidden)
           ..add('slot', slot)
-          ..add('ability', ability))
+          ..add('ability', ability)
+          ..add('base_stat', base_stat)
+          ..add('effort', effort)
+          ..add('stat', stat))
         .toString();
   }
 }
@@ -498,6 +680,18 @@ class RandorUserBuilder implements Builder<RandorUser, RandorUserBuilder> {
   AbilityBuilder get ability => _$this._ability ??= new AbilityBuilder();
   set ability(AbilityBuilder ability) => _$this._ability = ability;
 
+  int _base_stat;
+  int get base_stat => _$this._base_stat;
+  set base_stat(int base_stat) => _$this._base_stat = base_stat;
+
+  int _effort;
+  int get effort => _$this._effort;
+  set effort(int effort) => _$this._effort = effort;
+
+  AbilityBuilder _stat;
+  AbilityBuilder get stat => _$this._stat ??= new AbilityBuilder();
+  set stat(AbilityBuilder stat) => _$this._stat = stat;
+
   RandorUserBuilder();
 
   RandorUserBuilder get _$this {
@@ -505,7 +699,10 @@ class RandorUserBuilder implements Builder<RandorUser, RandorUserBuilder> {
     if ($v != null) {
       _is_hidden = $v.is_hidden;
       _slot = $v.slot;
-      _ability = $v.ability.toBuilder();
+      _ability = $v.ability?.toBuilder();
+      _base_stat = $v.base_stat;
+      _effort = $v.effort;
+      _stat = $v.stat?.toBuilder();
       _$v = null;
     }
     return this;
@@ -528,16 +725,20 @@ class RandorUserBuilder implements Builder<RandorUser, RandorUserBuilder> {
     try {
       _$result = _$v ??
           new _$RandorUser._(
-              is_hidden: BuiltValueNullFieldError.checkNotNull(
-                  is_hidden, 'RandorUser', 'is_hidden'),
-              slot: BuiltValueNullFieldError.checkNotNull(
-                  slot, 'RandorUser', 'slot'),
-              ability: ability.build());
+              is_hidden: is_hidden,
+              slot: slot,
+              ability: _ability?.build(),
+              base_stat: base_stat,
+              effort: effort,
+              stat: _stat?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'ability';
-        ability.build();
+        _ability?.build();
+
+        _$failedField = 'stat';
+        _stat?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'RandorUser', _$failedField, e.toString());
