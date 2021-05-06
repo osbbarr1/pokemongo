@@ -91,25 +91,6 @@ class _HomePagePokemonState extends State<HomePagePokemon> {
                         ),
                       ),
                     ),
-                    /*Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Insertar nombre pokèmon',
-                        ),
-                      ),
-                    ),
-                    Container(
-                      color: Colors.blue,
-                      height: 100,
-                    ),
-                    Container(
-                      color: Colors.green,
-                      height: 100,
-                    )*/
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

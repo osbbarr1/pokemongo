@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemongo/page/detailPage.dart';
 import 'package:pokemongo/page/pokeHome.dart';
 
 void main() {
@@ -10,9 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Pokedex',
-      theme: ThemeData.light(),
-      home: HomePagePokemon(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Pokedex',
+        theme: ThemeData.light(),
+        //home: HomePagePokemon(),
+        home: detailPage());
   }
 }
