@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class detailPage extends StatefulWidget {
@@ -37,7 +39,9 @@ class _detailPageState extends State<detailPage> {
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             color: Colors.yellow,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
           backgroundColor: Colors.red,
         ),
@@ -55,11 +59,11 @@ class _detailPageState extends State<detailPage> {
                 child: Column(
                   children: [
                     Container(
-                      color: Colors.cyan,
+                      //color: Colors.cyan,
                       height: 30,
                     ),
                     Container(
-                        color: Colors.blue,
+                        //                       color: Colors.blue,
                         height: 50,
                         child: Center(
                             child: Text("Poke Card",
@@ -80,9 +84,20 @@ class _detailPageState extends State<detailPage> {
                       ),
                     ),
                     Container(
+                      height: 20,
+                      width: 330,
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          "Descripción: ",
+                          style: TextStyle(fontSize: 20, color: Colors.yellow),
+                        ),
+                      ),
+                    ),
+                    Container(
                       height: 300,
                       width: 330,
-                      color: Colors.blue,
+                      color: Colors.red,
                       child: Column(
                         children: [
                           Container(
@@ -232,8 +247,47 @@ class _detailPageState extends State<detailPage> {
                                   child: Align(
                                       alignment: Alignment.topLeft,
                                       child: Text(
+                                          "puntos de defensa: " + pokemonSpAtt,
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.yellow,
+                                          ),
+                                          textAlign: TextAlign.left)),
+                                ),
+                              ],
+                            ),
+                          )),
+                          Container(
+                              child: Align(
+                            alignment: Alignment.topLeft,
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Text(
                                           "puntos del ataque especial: " +
                                               pokemonSpAtt,
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.yellow,
+                                          ),
+                                          textAlign: TextAlign.left)),
+                                ),
+                              ],
+                            ),
+                          )),
+                          Container(
+                              child: Align(
+                            alignment: Alignment.topLeft,
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Text(
+                                          "puntos de la defensa especial: " +
+                                              pokemonSpDef,
                                           style: TextStyle(
                                             fontSize: 20,
                                             color: Colors.yellow,

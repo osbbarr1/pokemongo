@@ -11,10 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Pokedex',
-        theme: ThemeData.light(),
-        //home: HomePagePokemon(),
-        home: detailPage());
+      debugShowCheckedModeBanner: false,
+      title: 'Pokedex',
+      theme: ThemeData.light(),
+      home: HomePagePokemon(),
+      //home: detailPage());
+    );
   }
 }
