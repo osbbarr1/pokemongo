@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pokemongo/page/DetailPage.dart';
 import 'package:pokemongo/providers/pokemon.provider.dart';
 
+import 'detalesFuture.dart';
+
 class HomePagePokemon extends StatefulWidget {
   @override
   _HomePagePokemonState createState() => _HomePagePokemonState();
@@ -96,14 +98,18 @@ class _HomePagePokemonState extends State<HomePagePokemon> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
-                            onPressed: () {
-                              pokemonStr = pokemonInText.text;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => DetailPage()));
-                            },
-                            child: Text("Buscar")),
+                          onPressed: () {
+                            pokemonStr = pokemonInText.text;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    DetallesFuture(pokemonStr),
+                              ),
+                            );
+                          },
+                          child: Text("Buscar"),
+                        ),
                       ],
                     ),
                   ],

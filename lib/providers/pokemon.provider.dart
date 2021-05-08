@@ -5,8 +5,8 @@ import 'package:pokemongo/serializable/serializers.dart';
 import 'package:pokemongo/serializable/pokemon_response.dart';
 
 class PokemonProviders {
-  List<Pokemon> listaPokemon = [];
-  getListaPokemon(String urlPokemon) async {
+  List<RandorUserResponse> listaPokemon = [];
+  Future<RandorUserResponse> getListaPokemon(String urlPokemon) async {
     var url = Uri.https('pokeapi.co', '/api/v2/pokemon/$urlPokemon');
     var response = await http.get(url);
     if (response.statusCode == 200) {
@@ -16,10 +16,11 @@ class PokemonProviders {
       //var itemCount = jsonResponse['totalItems'];
       final randorUserResponde =
           RandorUserResponse.fromJson(randorUserResponJsonMap);
-
-      print('Pokemonnnn http  ===> : $randorUserResponde');
+      listaPokemon.add(randorUserResponde);
+      // print(randorUserResponde);
+      return randorUserResponde;
     } else {
-      print('hay un error status: ${response.statusCode}.');
+      print('hay un error status: ${response.statusCode}');
     }
   }
 }

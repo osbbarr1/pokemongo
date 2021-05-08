@@ -15,9 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Pokedex',
       theme: ThemeData.light(),
-      //home: DetailPage(),
-      home: PokeCard(),
-      //home: detailPage());
+      home: HomePagePokemon(),
     );
   }
 }

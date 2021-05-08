@@ -1,13 +1,15 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 
-class PokeCard extends StatefulWidget {
-  PokeCard({Key key}) : super(key: key);
+import '../serializable/pokemon_response.dart';
+import 'DetailPage.dart';
+import 'DetailPage.dart';
+import 'HomePagePokemon.dart';
 
-  @override
-  _PokeCardState createState() => _PokeCardState();
-}
-
-class _PokeCardState extends State<PokeCard> {
+class PokeCard extends StatelessWidget {
+  final RandorUserResponse responseJson;
+  PokeCard(this.responseJson);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +20,10 @@ class _PokeCardState extends State<PokeCard> {
           icon: Icon(Icons.arrow_back),
           color: Colors.yellow,
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(
+                context,
+                // Create the SelectionScreen in the next step.
+                MaterialPageRoute(builder: (context) => HomePagePokemon()));
           },
         ),
         title: Text("Pokedex",
@@ -71,14 +76,33 @@ class _PokeCardState extends State<PokeCard> {
                         Align(
                           alignment: Alignment.center,
                           child: CircleAvatar(
+                            radius: 110.0,
                             backgroundImage: NetworkImage(
-                                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png'),
+                                responseJson.sprites.front_default),
                             backgroundColor: Colors.white,
                           ),
                         ),
                       ],
                     ),
-                  )
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {},
+                                child: Text("Ver Detalle"),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ],
