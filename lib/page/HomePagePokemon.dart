@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokemongo/page/detailPage.dart';
+import 'package:pokemongo/page/DetailPage.dart';
 import 'package:pokemongo/providers/pokemon.provider.dart';
 
 class HomePagePokemon extends StatefulWidget {
@@ -101,7 +101,7 @@ class _HomePagePokemonState extends State<HomePagePokemon> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => detailPage()));
+                                      builder: (context) => DetailPage()));
                             },
                             child: Text("Buscar")),
                       ],

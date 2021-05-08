@@ -2,17 +2,14 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class detailPage extends StatefulWidget {
-  detailPage({Key key}) : super(key: key);
+class DetailPage extends StatefulWidget {
+  DetailPage({Key key}) : super(key: key);
 
   @override
-  _detailPageState createState() => _detailPageState();
+  _DetailPageState createState() => _DetailPageState();
 }
 
-class _detailPageState extends State<detailPage> {
-  // variables
-  String urlImage =
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png';
+class _DetailPageState extends State<DetailPage> {
   String pokemonName = 'bulbasaur';
   String pokepeso = "69";
   String pokemonAltura = "7";
@@ -66,42 +63,73 @@ class _detailPageState extends State<detailPage> {
                         //                       color: Colors.blue,
                         height: 50,
                         child: Center(
-                            child: Text("Poke Card",
+                            child: Text("Poke Card Detalles",
                                 style: TextStyle(
                                     fontSize: 30, color: Colors.yellow)))),
-                    Container(
+                    /*Container(
                       height: 150,
                       width: 150,
-                      //color: Colors.blue,
+                      color: Colors.white,
                       child: Center(
                         child: CircleAvatar(
                           //body:Image.network('https://picsum.photos/250?image=9')
-                          radius: 90.0,
+                          radius: 900.0,
                           backgroundImage: NetworkImage(
                               'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png'),
                           backgroundColor: Colors.white,
                         ),
                       ),
-                    ),
-                    Container(
+                    ),*/
+                    /*Container(
                       height: 20,
                       width: 330,
+                      color: Colors.white,
                       child: Align(
                         alignment: Alignment.topLeft,
                         child: Text(
                           "Descripción: ",
-                          style: TextStyle(fontSize: 20, color: Colors.yellow),
+                          style: TextStyle(fontSize: 20, color: Colors.black),
                         ),
                       ),
-                    ),
+                    ),*/
                     Container(
-                      height: 300,
+                      height: 400,
                       width: 330,
-                      color: Colors.red,
+                      color: Colors.white,
                       child: Column(
                         children: [
+                          Row(
+                            children: [
+                              Container(
+                                height: 100,
+                                width: 100,
+                                color: Colors.white,
+                                alignment: Alignment.topLeft,
+                                child: Align(
+                                  alignment: Alignment.topLeft,
+                                  child: CircleAvatar(
+                                    //body:Image.network('https://picsum.photos/250?image=9')
+                                    radius: 900.0,
+                                    backgroundImage: NetworkImage(
+                                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png'),
+                                    backgroundColor: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                           Container(
                             height: 10,
+                          ),
+                          Container(
+                            child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Text("Descripcion: ",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                    ),
+                                    textAlign: TextAlign.left)),
                           ),
                           Container(
                             child: Align(
@@ -109,7 +137,7 @@ class _detailPageState extends State<detailPage> {
                                 child: Text("Nombre: " + pokemonName,
                                     style: TextStyle(
                                       fontSize: 20,
-                                      color: Colors.yellow,
+                                      color: Colors.black,
                                     ),
                                     textAlign: TextAlign.left)),
                           ),
@@ -124,7 +152,7 @@ class _detailPageState extends State<detailPage> {
                                       child: Text("peso: " + pokepeso + " Up ",
                                           style: TextStyle(
                                             fontSize: 20,
-                                            color: Colors.yellow,
+                                            color: Colors.black,
                                           ),
                                           textAlign: TextAlign.left)),
                                 ),
@@ -135,7 +163,7 @@ class _detailPageState extends State<detailPage> {
                                           "Altura: " + pokemonAltura + " Ua",
                                           style: TextStyle(
                                             fontSize: 20,
-                                            color: Colors.yellow,
+                                            color: Colors.black,
                                           ),
                                           textAlign: TextAlign.left)),
                                 ),
@@ -155,7 +183,7 @@ class _detailPageState extends State<detailPage> {
                                               pokemonNEvoluciones,
                                           style: TextStyle(
                                             fontSize: 20,
-                                            color: Colors.yellow,
+                                            color: Colors.black,
                                           ),
                                           textAlign: TextAlign.left)),
                                 ),
@@ -175,7 +203,7 @@ class _detailPageState extends State<detailPage> {
                                               pokemonNEscEvolu,
                                           style: TextStyle(
                                             fontSize: 20,
-                                            color: Colors.yellow,
+                                            color: Colors.black,
                                           ),
                                           textAlign: TextAlign.left)),
                                 ),
@@ -194,7 +222,7 @@ class _detailPageState extends State<detailPage> {
                                           Text("Puntos de salud: " + pokemonHP,
                                               style: TextStyle(
                                                 fontSize: 20,
-                                                color: Colors.yellow,
+                                                color: Colors.black,
                                               ),
                                               textAlign: TextAlign.left)),
                                 ),
@@ -212,7 +240,7 @@ class _detailPageState extends State<detailPage> {
                                       child: Text("Tipo: " + pokemonType,
                                           style: TextStyle(
                                             fontSize: 20,
-                                            color: Colors.yellow,
+                                            color: Colors.black,
                                           ),
                                           textAlign: TextAlign.left)),
                                 ),
@@ -231,7 +259,7 @@ class _detailPageState extends State<detailPage> {
                                           "puntos de ataque: " + pokemonAtt,
                                           style: TextStyle(
                                             fontSize: 20,
-                                            color: Colors.yellow,
+                                            color: Colors.black,
                                           ),
                                           textAlign: TextAlign.left)),
                                 ),
@@ -250,7 +278,7 @@ class _detailPageState extends State<detailPage> {
                                           "puntos de defensa: " + pokemonSpAtt,
                                           style: TextStyle(
                                             fontSize: 20,
-                                            color: Colors.yellow,
+                                            color: Colors.black,
                                           ),
                                           textAlign: TextAlign.left)),
                                 ),
@@ -270,7 +298,7 @@ class _detailPageState extends State<detailPage> {
                                               pokemonSpAtt,
                                           style: TextStyle(
                                             fontSize: 20,
-                                            color: Colors.yellow,
+                                            color: Colors.black,
                                           ),
                                           textAlign: TextAlign.left)),
                                 ),

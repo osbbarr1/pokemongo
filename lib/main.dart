@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokemongo/page/detailPage.dart';
-import 'package:pokemongo/page/pokeHome.dart';
+import 'package:pokemongo/page/DetailPage.dart';
+import 'package:pokemongo/page/HomePagePokemon.dart';
+import 'package:pokemongo/page/PokeCard.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Pokedex',
       theme: ThemeData.light(),
-      home: HomePagePokemon(),
+      //home: DetailPage(),
+      home: PokeCard(),
       //home: detailPage());
     );
   }
