@@ -1,15 +1,12 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
-
 import '../serializable/pokemon_response.dart';
-import 'DetailPage.dart';
-import 'DetailPage.dart';
-import 'HomePagePokemon.dart';
+import 'package:pokemongo/page/DetailPage.dart';
+import 'package:pokemongo/page/HomePagePokemon.dart';
 
 class PokeCard extends StatelessWidget {
   final RandorUserResponse responseJson;
   PokeCard(this.responseJson);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,75 +37,80 @@ class PokeCard extends StatelessWidget {
         ],
       ),
 
-      body: _body(),
-      //child: child,
-    );
-  }
-
-  _body() {
-    return Column(
-      children: [
-        Expanded(
-            child: Container(
-          color: Colors.red,
-          child: Column(
-            children: [
-              Container(
-                height: 30,
-              ),
-              Container(
+      body: Column(
+        children: [
+          Expanded(
+              child: Container(
+            color: Colors.red,
+            child: Column(
+              children: [
+                Container(
+                  height: 30,
+                ),
+                Container(
                   height: 50,
                   child: Center(
-                      child: Text("Poke Card",
-                          style:
-                              TextStyle(fontSize: 30, color: Colors.yellow)))),
-              Column(
-                children: [
-                  Container(
-                    height: 400,
-                    width: 280,
-                    color: Colors.white,
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 100,
-                        ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: CircleAvatar(
-                            radius: 110.0,
-                            backgroundImage: NetworkImage(
-                                responseJson.sprites.front_default),
-                            backgroundColor: Colors.white,
-                          ),
-                        ),
-                      ],
+                    child: Text(
+                      "Poke Card",
+                      style: TextStyle(fontSize: 30, color: Colors.yellow),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              ElevatedButton(
-                                onPressed: () {},
-                                child: Text("Ver Detalle"),
-                              ),
-                            ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      height: 400,
+                      width: 280,
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 100,
                           ),
-                        ),
-                      ],
+                          Align(
+                            alignment: Alignment.center,
+                            child: CircleAvatar(
+                              radius: 110.0,
+                              backgroundImage: NetworkImage(
+                                  responseJson.sprites.front_default),
+                              backgroundColor: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ))
-      ],
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                DetallePokemon(responseJson)));
+                                  },
+                                  child: Text("Ver Detalle"),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ))
+        ],
+      ),
+      //child: child,
     );
   }
 }
