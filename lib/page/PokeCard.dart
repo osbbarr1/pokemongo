@@ -43,7 +43,6 @@ class PokeCard extends StatelessWidget {
               onPressed: () {}),
         ],
       ),
-
       body: Column(
         children: [
           Expanded(
@@ -221,30 +220,6 @@ class PokeCard extends StatelessWidget {
                                                 DetallePokemon(responseJson)));*/
                       },
                     ),
-                    /*Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                ElevatedButton(
-                                  onPressed: () {
-                                    /*Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                DetallePokemon(responseJson)));*/
-                                  },
-                                  child: Text("Ver Detalle"),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),*/
                   ],
                 ),
               ],
@@ -252,7 +227,6 @@ class PokeCard extends StatelessWidget {
           ))
         ],
       ),
-      //child: child,
     );
   }
 }

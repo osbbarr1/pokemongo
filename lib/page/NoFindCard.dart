@@ -39,7 +39,6 @@ class _NoFindCardState extends State<NoFindCard> {
               fontSize: 50,
             )),
       ),
-
       body: Column(
         children: [
           Expanded(
@@ -204,31 +203,6 @@ class _NoFindCardState extends State<NoFindCard> {
                     Container(
                       height: 20,
                     ),
-
-                    /*Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                ElevatedButton(
-                                  onPressed: () {
-                                    /*Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                DetallePokemon(responseJson)));*/
-                                  },
-                                  child: Text("Ver Detalle"),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),*/
                   ],
                 ),
               ],
@@ -236,7 +210,6 @@ class _NoFindCardState extends State<NoFindCard> {
           ))
         ],
       ),
-      //child: child,
     );
   }
 }
