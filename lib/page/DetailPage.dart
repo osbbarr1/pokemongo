@@ -64,31 +64,6 @@ class DetallePokemon extends StatelessWidget {
                         child: Text("Poke Card Detalles",
                             style: TextStyle(
                                 fontSize: 30, color: Colors.yellow)))),
-                /*Container(
-                      height: 150,
-                      width: 150,
-                      color: Colors.white,
-                      child: Center(
-                        child: CircleAvatar(
-                          //body:Image.network('https://picsum.photos/250?image=9')
-                          radius: 900.0,
-                          backgroundImage: NetworkImage(
-                              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png'),
-                          backgroundColor: Colors.white,
-                        ),),
-                    ),*/
-                /*Container(
-                      height: 20,
-                      width: 330,
-                      color: Colors.white,
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "Descripción: ",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
- ),
-                      ),
-                    ),*/
                 Container(
                   height: 400,
                   width: 330,
@@ -146,16 +121,6 @@ class DetallePokemon extends StatelessWidget {
                             Container(
                               child: Align(
                                   alignment: Alignment.topLeft,
-                                  child: Text("peso: " + pokepeso + " Up ",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.black,
-                                      ),
-                                      textAlign: TextAlign.left)),
-                            ),
-                            Container(
-                              child: Align(
-                                  alignment: Alignment.topLeft,
                                   child: Text(
                                       "Altura: " +
                                           responseJson.height.toString() +
@@ -198,7 +163,10 @@ class DetallePokemon extends StatelessWidget {
                               Container(
                                 child: Align(
                                     alignment: Alignment.topLeft,
-                                    child: Text("Tipo: " + pokemonType,
+                                    child: Text(
+                                        "Tipo: " +
+                                            responseJson.types.first.slot
+                                                .toString(),
                                         style: TextStyle(
                                           fontSize: 20,
                                           color: Colors.black,
@@ -217,13 +185,15 @@ class DetallePokemon extends StatelessWidget {
                               Container(
                                 child: Align(
                                     alignment: Alignment.topLeft,
-                                    child:
-                                        Text("puntos de ataque: " + pokemonAtt,
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.black,
-                                            ),
-                                            textAlign: TextAlign.left)),
+                                    child: Text(
+                                        "puntos de ataque: " +
+                                            responseJson.stats.first.base_stat
+                                                .toString(),
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          color: Colors.black,
+                                        ),
+                                        textAlign: TextAlign.left)),
                               ),
                             ],
                           ),
@@ -238,7 +208,9 @@ class DetallePokemon extends StatelessWidget {
                                 child: Align(
                                     alignment: Alignment.topLeft,
                                     child: Text(
-                                        "puntos de defensa: " + pokemonSpAtt,
+                                        "puntos de defensa: " +
+                                            responseJson.stats.first.base_stat
+                                                .toString(),
                                         style: TextStyle(
                                           fontSize: 20,
                                           color: Colors.black,
@@ -259,7 +231,8 @@ class DetallePokemon extends StatelessWidget {
                                     alignment: Alignment.topLeft,
                                     child: Text(
                                         "puntos del ataque especial: " +
-                                            pokemonSpAtt,
+                                            responseJson.stats.first.base_stat
+                                                .toString(),
                                         style: TextStyle(
                                           fontSize: 20,
                                           color: Colors.black,
@@ -280,10 +253,11 @@ class DetallePokemon extends StatelessWidget {
                                     alignment: Alignment.topLeft,
                                     child: Text(
                                         "puntos de la defensa especial: " +
-                                            pokemonSpDef,
+                                            responseJson.stats.last.base_stat
+                                                .toString(),
                                         style: TextStyle(
                                           fontSize: 20,
-                                          color: Colors.yellow,
+                                          color: Colors.black,
                                         ),
                                         textAlign: TextAlign.left)),
                               ),
