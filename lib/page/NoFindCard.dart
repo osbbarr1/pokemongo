@@ -33,181 +33,235 @@ class _NoFindCardState extends State<NoFindCard> {
                 MaterialPageRoute(builder: (context) => HomePagePokemon()));
           },
         ),
-        title: Text("Pokedex",
+        title: Center(
+          child: Text(
+            "Pokedex",
             style: TextStyle(
               color: Colors.yellow,
               fontSize: 50,
-            )),
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+              icon: const Icon(Icons.arrow_forward),
+              tooltip: 'hacia detalles',
+              color: Colors.yellow,
+              onPressed: () {}),
+        ],
       ),
       body: Column(
         children: [
           Expanded(
-              child: Container(
-            color: Colors.red,
-            child: Column(
-              children: [
-                Container(
-                  height: 15,
-                ),
-                Container(
-                  height: 50,
-                  child: Center(
-                    child: Text(
-                      "Poke Card",
-                      style: TextStyle(fontSize: 30, color: Colors.yellow),
+            child: Container(
+              color: Colors.red,
+              child: Column(
+                children: [
+                  Container(
+                    height: 50,
+                    child: Center(
+                      child: Text(
+                        "Poke Card",
+                        style: TextStyle(fontSize: 30, color: Colors.yellow),
+                      ),
                     ),
                   ),
-                ),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 40,
-                        ),
-                        Container(
-                          height: 400,
-                          width: 280,
-                          color: Colors.white,
-                          child: Stack(
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Container(
+                          height: 325,
+                          alignment: Alignment.center,
+                          color: Colors.red[200],
+                          child: Column(
                             children: [
-                              Container(
-                                height: 130,
-                                color: Colors.red[200],
-                              ),
-                              Positioned(
-                                  top: 110,
-                                  right: 40,
-                                  child: Text(
-                                    mensaje,
-                                    style: TextStyle(
-                                        fontSize: 20, color: Colors.black),
-                                  )),
-                              Positioned(
-                                top: 180,
-                                right: 90,
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 20.0,
+                                    top: 20.0,
+                                    right: 20.0,
+                                    bottom: 0.0),
                                 child: Container(
-                                  height: 70,
-                                  child: Align(
-                                      alignment: Alignment.topRight,
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            nombrePoke,
+                                  height: 100,
+                                  width: 200,
+                                  color: Colors.white,
+                                  child: Center(
+                                    child: Text("Pokemon no encontrado"),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Container(
+                                    height: 100,
+                                    color: Colors.white,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(38.0),
+                                          child: Text(
+                                            " ------ ",
                                             style: TextStyle(
-                                                fontSize: 20,
+                                                fontSize: 13,
                                                 color: Colors.black),
                                           ),
-                                          Container(
-                                            width: 10,
-                                          ),
-                                          Positioned(
-                                              top: 180,
-                                              right: 20,
-                                              child: Text(
-                                                hpPoke + " HP",
-                                                style: TextStyle(
-                                                    fontSize: 20,
-                                                    color: Colors.grey[300]),
-                                              ))
-                                        ],
-                                      )),
-                                ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Positioned(
-                                top: 230,
-                                child: Container(
-                                  color: Colors.grey[400],
-                                  width: 300,
-                                  height: 5,
-                                ),
-                              ),
-                              Positioned(
-                                top: 270,
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 20,
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Container(
+                                    height: 5,
+                                    color: Colors.grey,
+                                  ),
+                                  Container(
+                                    height: 100,
+                                    color: Colors.white,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(18.0),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Column(
+                                                    children: [
+                                                      Text(
+                                                        " ------ ",
+                                                        style: TextStyle(
+                                                            fontSize: 10,
+                                                            color:
+                                                                Colors.black),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(18.0),
+                                                        child: Text(
+                                                          " Ataque ",
+                                                          style: TextStyle(
+                                                              fontSize: 10,
+                                                              color: Colors
+                                                                  .grey[400]),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(18.0),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Column(
+                                                    children: [
+                                                      Text(
+                                                        " ------ ",
+                                                        style: TextStyle(
+                                                            fontSize: 10,
+                                                            color:
+                                                                Colors.black),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(5.0),
+                                                        child: Text(
+                                                          " Puntuación \n ataque especial \n Especial ",
+                                                          style: TextStyle(
+                                                              fontSize: 10,
+                                                              color: Colors
+                                                                  .grey[400]),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(18.0),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Column(
+                                                    children: [
+                                                      Text(
+                                                        " ------ ",
+                                                        style: TextStyle(
+                                                            fontSize: 10,
+                                                            color:
+                                                                Colors.black),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(18.0),
+                                                        child: Text(
+                                                          " Defensa ",
+                                                          style: TextStyle(
+                                                              fontSize: 10,
+                                                              color: Colors
+                                                                  .grey[400]),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      attPoke,
-                                      style: TextStyle(
-                                          fontSize: 20, color: Colors.black),
-                                    ),
-                                    Container(
-                                      width: 50,
-                                    ),
-                                    Text(
-                                      puntaPoke,
-                                      style: TextStyle(
-                                          fontSize: 20, color: Colors.black),
-                                    ),
-                                    Container(
-                                      width: 30,
-                                    ),
-                                    Text(
-                                      defPokemon,
-                                      style: TextStyle(
-                                          fontSize: 20, color: Colors.black),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Positioned(
-                                top: 310,
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 20,
-                                    ),
-                                    Text(
-                                      "Ataque",
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.grey[400]),
-                                    ),
-                                    Container(
-                                      width: 40,
-                                    ),
-                                    Text(
-                                      "Puntuacion \natque \nespecial",
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.grey[400]),
-                                    ),
-                                    Container(
-                                      width: 20,
-                                    ),
-                                    Text(
-                                      "Defensa",
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.grey[400]),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                height: 150,
+                                  ),
+                                ],
                               ),
                             ],
                           ),
                         ),
-                        Container(
-                          height: 400,
-                          width: 7,
-                          color: Colors.grey[400],
-                        )
-                      ],
-                    ),
-                    Container(
-                      height: 20,
-                    ),
-                  ],
-                ),
-              ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ))
+          ),
         ],
       ),
     );

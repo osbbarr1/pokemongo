@@ -20,7 +20,7 @@ class PokemonProviders {
       // print(randorUserResponde);
       return randorUserResponde;
     } else {
-      print('hay un error status: ${response.statusCode}');
+      print('No se encontro Pokemon : ${response.statusCode}');
     }
   }
 }

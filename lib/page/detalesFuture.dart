@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemongo/page/NoFindCard.dart';
 import 'package:pokemongo/page/PokeCard.dart';
 import 'package:pokemongo/providers/pokemon.provider.dart';
 import 'package:pokemongo/serializable/pokemon_response.dart';
@@ -40,7 +41,8 @@ class _DetallesFutureState extends State<DetallesFuture> {
             PokeCard pokeCard = PokeCard(dataJson);
             return pokeCard;
           } else {
-            return Text("$findPokemodar");
+            NoFindCard noFindCard = NoFindCard();
+            return noFindCard;
           }
         });
   }
