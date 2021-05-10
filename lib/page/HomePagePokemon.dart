@@ -23,7 +23,7 @@ class _HomePagePokemonState extends State<HomePagePokemon> {
   }
 
   bodyPokemon() {
-    pokemonProviders.getListaPokemon("ditto");
+    //pokemonProviders.getListaPokemon("ditto");
     return Column(
       children: [
         Expanded(

@@ -43,13 +43,6 @@ class _NoFindCardState extends State<NoFindCard> {
             textAlign: TextAlign.center,
           ),
         ),
-        actions: <Widget>[
-          IconButton(
-              icon: const Icon(Icons.arrow_forward),
-              tooltip: 'hacia detalles',
-              color: Colors.yellow,
-              onPressed: () {}),
-        ],
       ),
       body: Column(
         children: [
@@ -70,7 +63,7 @@ class _NoFindCardState extends State<NoFindCard> {
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(16.0),
+                        padding: const EdgeInsets.all(20.0),
                         child: Container(
                           height: 325,
                           alignment: Alignment.center,
@@ -103,7 +96,7 @@ class _NoFindCardState extends State<NoFindCard> {
                                           CrossAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.all(38.0),
+                                          padding: const EdgeInsets.all(34.0),
                                           child: Text(
                                             " ------ ",
                                             style: TextStyle(
@@ -210,7 +203,7 @@ class _NoFindCardState extends State<NoFindCard> {
                                             ),
                                             Padding(
                                               padding:
-                                                  const EdgeInsets.all(18.0),
+                                                  const EdgeInsets.all(10.0),
                                               child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.center,
@@ -231,7 +224,7 @@ class _NoFindCardState extends State<NoFindCard> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsets
-                                                                .all(18.0),
+                                                                .all(10.0),
                                                         child: Text(
                                                           " Defensa ",
                                                           style: TextStyle(

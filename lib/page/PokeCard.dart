@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import '../serializable/pokemon_response.dart';
 import 'package:pokemongo/page/DetailPage.dart';
@@ -42,7 +40,14 @@ class PokeCard extends StatelessWidget {
               icon: const Icon(Icons.arrow_forward),
               tooltip: 'hacia detalles',
               color: Colors.yellow,
-              onPressed: () {}),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetallePokemon(responseJson),
+                  ),
+                );
+              }),
         ],
       ),
       body: Column(
